@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 class Program
@@ -120,7 +120,8 @@ class Program
                 count = 0;
                 for (int j = 0; j < str1.Length; j++)
                 {
-                    if (str1[i] == str1[j])
+                   
+                    if (str1.ToLower()[i] == str1.ToLower()[j])
                     {
                         ++count;
                     }
@@ -133,9 +134,10 @@ class Program
                 for (int i = 0; i < str2.Length; i++)
                 {
                     count1 = 0;
+                    
                     for (int j = 0; j < str2.Length; j++)
                     {
-                        if (str2[i] == str2[j])
+                        if (str2.ToLower()[i] == str2.ToLower()[j])
                         {
                             ++count1;
                         }
@@ -152,9 +154,9 @@ class Program
     private static void Debtors(out List<Debtor> debtors)
     {
         debtors = new List<Debtor> {
-            new Debtor("Shirley T. Qualls", DateTime.Parse("March 30, 1932"), "530-662-7732", "ShirleyTQualls@teleworm.us", "3565 Eagles Nest Drive Woodland, CA 95695", 2414),
+              new Debtor("Shirley T. Qualls", DateTime.Parse("March 30, 1932"), "530-662-7732", "ShirleyTQualls@teleworm.us", "3565 Eagles Nest Drive Woodland, CA 95695", 2414),
             new Debtor("Danielle W. Grier", DateTime.Parse("October 18, 1953"), "321-473-4178", "DanielleWGrier@rhyta.com", "1973 Stoneybrook Road Maitland, FL 32751", 3599),
-              new Debtor("Martin S. Malinowski", DateTime.Parse("January 17, 1992"), "765-599-3523", "MartinSMalinowski@dayrep.com", "3749 Capitol Avenue New Castle, IN 47362", 1816),
+            new Debtor("Connie W. Lemire", DateTime.Parse("June 18, 1963"), "828-321-3751", "ConnieWLemire@rhyta.com", "2432 Hannah Street Andrews, NC 28901", 1219),
             new Debtor("Coy K. Adams", DateTime.Parse("March 1, 1976"), "410-347-1307", "CoyKAdams@dayrep.com", "2411 Blue Spruce Lane Baltimore, MD 21202", 3784),
             new Debtor("Bernice J. Miles", DateTime.Parse("June 1, 1988"), "912-307-6797", "BerniceJMiles@armyspy.com", "4971 Austin Avenue Savannah, GA 31401", 4060),
             new Debtor("Bob L. Zambrano", DateTime.Parse("February 28, 1990"), "706-446-1649", "BobLZambrano@armyspy.com", "2031 Limer Street Augusta, GA 30901", 6628),
@@ -169,7 +171,8 @@ class Program
             new Debtor("Charles P. Segundo", DateTime.Parse("October 21, 1970"), "415-367-3341", "CharlesPSegundo@dayrep.com", "1824 Roosevelt Street Fremont, CA 94539", 5648),
             new Debtor("Paul H. Sturtz", DateTime.Parse("September 15, 1944"), "336-376-1732", "PaulHSturtz@dayrep.com", "759 Havanna Street Saxapahaw, NC 27340", 10437),
             new Debtor("Doris B. King", DateTime.Parse("October 10, 1978"), "205-231-8973", "DorisBKing@rhyta.com", "3172 Bedford Street Birmingham, AL 35203", 7230),
-            new Debtor("Deanna J. Donofrio", DateTime.Parse("April 16, 1983"), "952-842-7576", "DeannaJDonofrio@rhyta.com", "1972 Orchard Street Bloomington, MN 55437", 515),       
+            new Debtor("Deanna J. Donofrio", DateTime.Parse("April 16, 1983"), "952-842-7576", "DeannaJDonofrio@rhyta.com", "1972 Orchard Street Bloomington, MN 55437", 515),
+            new Debtor("Martin S. Malinowski", DateTime.Parse("January 17, 1992"), "765-599-3523", "MartinSMalinowski@dayrep.com", "3749 Capitol Avenue New Castle, IN 47362", 1816),
             new Debtor("Melissa R. Arner", DateTime.Parse("May 24, 1974"), "530-508-7328", "MelissaRArner@armyspy.com", "922 Hill Croft Farm Road Sacramento, CA 95814", 5037),
             new Debtor("Kelly G. Hoffman", DateTime.Parse("September 22, 1969"), "505-876-8935", "KellyGHoffman@armyspy.com", "4738 Chapmans Lane Grants, NM 87020", 7755),
             new Debtor("Doyle B. Short", DateTime.Parse("June 15, 1986"), "989-221-4363", "DoyleBShort@teleworm.us", "124 Wood Street Saginaw, MI 48607", 11657),
@@ -198,6 +201,7 @@ class Program
             new Debtor("Lakisha R. Forrest", DateTime.Parse("December 1, 1973"), "334-830-1181", "LakishaRForrest@armyspy.com", "3121 Quarry Drive Montgomery, AL 36117", 3088),
             new Debtor("Pamela H. Beauchamp", DateTime.Parse("November 20, 1959"), "801-559-6347", "PamelaHBeauchamp@jourrapide.com", "3239 Tori Lane Salt Lake City, UT 84104", 6588)
         };
+
 
     }
 
@@ -232,8 +236,8 @@ class Program
         //var list = debtors.FindAll(d=>Methods.IsHave8(d.Phone)==false);
         // list.ForEach(d => Console.WriteLine($"Name:{d.FullName.Split('.')[1]},Age: {2021-d.BirthDay.Year},Debt: {d.Debt}"));
         //----8)Adinda ve familyasinda hec olmasa 3 eyni herf olan borclularin siyahisin cixarmaq ve onlari elifba sirasina gore sortirovka elemek
-        //var list = debtors.FindAll(d=>Methods.IsSameThreeCharacterWithTwoString(d.FullName.Split('.')[0], d.FullName.Split('.')[1])).OrderBy(d=>d.FullName).ToList();
-        //list.ForEach(d => Console.WriteLine(d));
+        var list = debtors.FindAll(d=>Methods.IsSameThreeCharacterWithTwoString(d.FullName.Split('.')[0], d.FullName.Split('.')[1])).OrderBy(d=>d.FullName).ToList();
+        list.ForEach(d => Console.WriteLine(d));
         //----9)borclulardan en coxu hansi ilde dogulubsa hemin ili cixartmaq
         //var year = debtors.GroupBy(d => d.BirthDay.Year).ToList().OrderByDescending(d => d.Count()).First().Key;
         //Console.WriteLine(year);
